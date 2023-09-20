@@ -6,7 +6,8 @@ import { UsersService } from './users.service';
 
 @Module({
   imports:[
-    DbModule.forFeature([User])
+    DbModule.forRoot('MONGO_URI'),
+    DbModule.forFeature([User]),
   ],
   controllers: [UsersController],
   providers:[UsersService]

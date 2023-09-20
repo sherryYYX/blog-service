@@ -2,9 +2,11 @@ import { NestFactory } from '@nestjs/core';
 import { AdminModule } from './admin.module';
 import {DocumentBuilder,SwaggerModule} from '@nestjs/swagger'
 import * as mongoose from 'mongoose'
+import {ValidationPipe} from '@nestjs/common'
 
 async function bootstrap() {
   const app = await NestFactory.create(AdminModule);
+  app.useGlobalPipes(new ValidationPipe())
 
   // await mongoose.connect('mongodb://localhost:27017/', { dbName: 'test' });
 
