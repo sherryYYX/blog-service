@@ -13,7 +13,7 @@ export class DbModule {
         inject:[ConfigService],
         useFactory:(configService:ConfigService)=>{
           // const uri = configService.get<string>( envKey, 'MONGO_URI')
-          const uri = process.env.MONGO_URI || "mongodb://localhost:27017/admin/";
+          const uri = process.env.MONGO_URI || "mongodb://localhost:27017/admin";
           return mongoose.connect(uri,options)
         }
       }
